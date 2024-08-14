@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     // Use withCredentials to securely provide Docker registry credentials
-                    withCredentials([usernamePassword(credentialsId: $DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         // Log in to Docker registry
                         sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
 
